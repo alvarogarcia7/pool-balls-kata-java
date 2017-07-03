@@ -11,6 +11,6 @@ public class Triangle {
     }
 
     public Swaps minimumSetOfSwaps() {
-        return null;
+        return Swaps.empty();
     }
 }
