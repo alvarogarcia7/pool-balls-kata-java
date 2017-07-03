@@ -14,11 +14,11 @@ public class Triangle {
 
     public Swaps minimumSetOfSwaps() {
         List<Swap> swaps = new ArrayList<>();
-        if (this.currentArrangement.size() == 1) {
+        if (currentArrangement.size() == 1) {
             return Swaps.empty();
         }
 
-        BallsInTheWrongPlace wrongBalls = this.finalArrangement.differenceTo(this.currentArrangement);
+        BallsInTheWrongPlace wrongBalls = finalArrangement.differenceTo(currentArrangement);
         swaps.add(wrongBalls.firstSwap());
 
         if(wrongBalls.size() == 3){
