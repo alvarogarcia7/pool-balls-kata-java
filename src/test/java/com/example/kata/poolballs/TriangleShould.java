@@ -26,4 +26,14 @@ public class TriangleShould {
 
         assertThat(triangle.minimumSetOfSwaps(), is(Swaps.of(Swap.of(0, 1))));
     }
+
+    @Test
+    public void get_the_swaps_case_2() {
+        Triangle triangle = Triangle.aNew()
+                .arrangement(of("Y"), of("R"), of("T"))
+                .current(of("R"), of("T"), of("Y"))
+                .build();
+
+        assertThat(triangle.minimumSetOfSwaps(), is(Swaps.of(Swap.of(0, 1), Swap.of(0, 2))));
+    }
 }
