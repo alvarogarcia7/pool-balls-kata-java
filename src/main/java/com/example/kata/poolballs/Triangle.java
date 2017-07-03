@@ -1,22 +1,31 @@
 package com.example.kata.poolballs;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Triangle {
-    private final List<PoolBall> finalArrangement;
-    private List<PoolBall> balls;
+    private final PoolBalls finalArrangement;
+    private final PoolBalls currentArrangement;
 
-    private Triangle(PoolBall[] finalArrangement, PoolBall[] currentArrangement) {
-        this.finalArrangement = Arrays.asList(finalArrangement);
-        this.balls = Arrays.asList(currentArrangement);
+    private Triangle(PoolBalls finalArrangement, PoolBalls currentArrangement) {
+        this.finalArrangement = finalArrangement;
+        this.currentArrangement = currentArrangement;
     }
 
     public Swaps minimumSetOfSwaps() {
-        if (this.balls.size() == 1) {
+        List<Swap> swaps = new ArrayList<>();
+        if (this.currentArrangement.size() == 1) {
             return Swaps.empty();
         }
-        return Swaps.of(Swap.of(0, 1));
+
+        BallsInTheWrongPlace wrongBalls = this.finalArrangement.differenceTo(this.currentArrangement);
+        swaps.add(wrongBalls.firstSwap());
+
+        if(wrongBalls.size() == 3){
+            swaps.add(Swap.of(PoolBallIndex.of(0), PoolBallIndex.of(2)));
+        }
+        return Swaps.of(swaps.toArray(new Swap[0]));
+
     }
 
     public static TriangleBuilder aNew() {
@@ -38,7 +47,7 @@ public class Triangle {
         }
 
         public Triangle build() {
-            return new Triangle(arrangement, currentArrangement);
+            return new Triangle(new PoolBalls(arrangement), new PoolBalls(currentArrangement));
         }
     }
 }

@@ -1,5 +1,10 @@
 package com.example.kata.poolballs;
 
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+
+@EqualsAndHashCode
+@ToString
 public class PoolBall {
     private String value;
 

@@ -24,7 +24,7 @@ public class TriangleShould {
                 .current(of("R"), of("Y"), of("Y"))
                 .build();
 
-        assertThat(triangle.minimumSetOfSwaps(), is(Swaps.of(Swap.of(0, 1))));
+        assertThat(triangle.minimumSetOfSwaps(), is(Swaps.of(Swap.of(PoolBallIndex.of(0), PoolBallIndex.of(1)))));
     }
 
     @Test
@@ -34,6 +34,6 @@ public class TriangleShould {
                 .current(of("R"), of("T"), of("Y"))
                 .build();
 
-        assertThat(triangle.minimumSetOfSwaps(), is(Swaps.of(Swap.of(0, 1), Swap.of(0, 2))));
+        assertThat(triangle.minimumSetOfSwaps(), is(Swaps.of(Swap.of(PoolBallIndex.of(0), PoolBallIndex.of(1)), Swap.of(PoolBallIndex.of(0), PoolBallIndex.of(2)))));
     }
 }

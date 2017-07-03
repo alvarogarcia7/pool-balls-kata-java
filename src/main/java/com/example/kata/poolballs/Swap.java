@@ -6,15 +6,15 @@ import lombok.ToString;
 @EqualsAndHashCode
 @ToString
 public class Swap {
-    private final int from;
-    private final int to;
+    private final PoolBallIndex from;
+    private final PoolBallIndex to;
 
-    public Swap(int from, int to) {
+    public Swap(PoolBallIndex from, PoolBallIndex to) {
         this.from = from;
         this.to = to;
     }
 
-    public static Swap of(int from, int to) {
+    public static Swap of(PoolBallIndex from, PoolBallIndex to) {
         return new Swap(from, to);
     }
 }
