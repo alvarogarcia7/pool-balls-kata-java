@@ -12,4 +12,13 @@ public class TriangleShould {
 
         assertThat(triangle.isEmpty(), is(true));
     }
+
+    @Test
+    public void is_not_empty_after_adding_balls() {
+        Triangle triangle = new Triangle();
+
+        triangle.addBall(PoolBall.of("Y"));
+
+        assertThat(triangle.isEmpty(), is(false));
+    }
 }
