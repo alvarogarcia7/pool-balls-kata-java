@@ -1,20 +1,16 @@
 package com.example.kata.poolballs;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Triangle {
     private List<PoolBall> balls;
 
-    public Triangle() {
-        this.balls = new ArrayList<>();
+    public Triangle(PoolBall... poolBalls) {
+        this.balls = Arrays.asList(poolBalls);
     }
 
-    public boolean isEmpty() {
-        return balls.isEmpty();
-    }
-
-    public void addBall(PoolBall poolBall) {
-        balls.add(poolBall);
+    public Swaps minimumSetOfSwaps() {
+        return null;
     }
 }
