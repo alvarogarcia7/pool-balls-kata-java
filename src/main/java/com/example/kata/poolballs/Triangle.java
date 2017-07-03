@@ -11,6 +11,9 @@ public class Triangle {
     }
 
     public Swaps minimumSetOfSwaps() {
-        return Swaps.empty();
+        if (this.balls.size()==1){
+            return Swaps.empty();
+        }
+        return Swaps.of(Swap.of(0,1));
     }
 }
