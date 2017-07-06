@@ -14,6 +14,10 @@ public class PoolBalls {
         }
     }
 
+    private PoolBalls(Map<PoolBallIndex, PoolBall> balls) {
+        values = balls;
+    }
+
     public int size() {
         return values.entrySet().size();
     }
@@ -34,5 +38,16 @@ public class PoolBalls {
 
         return BallsInTheWrongPlace.at(wrongBallIndices.toArray(new PoolBallIndex[0]));
 
+    }
+
+    public PoolBalls apply(Swap swap) {
+        Map<PoolBallIndex, PoolBall> balls = new HashMap<>(this.values);
+        PoolBall from = balls.get(swap.getFrom());
+        PoolBall to = balls.get(swap.getTo());
+
+        balls.replace(swap.getFrom(), to);
+        balls.replace(swap.getTo(), from);
+
+        return new PoolBalls(balls);
     }
 }
