@@ -1,5 +1,6 @@
 package com.example.kata.poolballs;
 
+import org.hamcrest.Matcher;
 import org.junit.Test;
 
 import static com.example.kata.poolballs.PoolBall.of;
@@ -44,10 +45,14 @@ public class TriangleShould {
                 .current(of("R"), of("K"), of("T"), of("F"), of("Y"))
                 .build();
 
-        assertThat(triangle.minimumSetOfSwaps(), is(Swaps.of(
-                Swap.of(PoolBallIndex.of(0), PoolBallIndex.of(1))
-                , Swap.of(PoolBallIndex.of(0), PoolBallIndex.of(3))
-                , Swap.of(PoolBallIndex.of(0), PoolBallIndex.of(4))
-        )));
+        assertThat(triangle.minimumSetOfSwaps(), isSwaps(swap(0, 1), swap(0, 3), swap(0, 4)));;
+    }
+
+    private Matcher<Swaps> isSwaps(Swap... swaps) {
+        return is(Swaps.of(swaps));
+    }
+
+    private Swap swap(int from, int to) {
+        return Swap.of(PoolBallIndex.of(from), PoolBallIndex.of(to));
     }
 }
