@@ -1,33 +1,38 @@
 package com.example.kata.poolballs;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class PoolBalls {
-    private final List<PoolBall> values;
+    private final Map<PoolBallIndex, PoolBall> values;
 
     public PoolBalls(PoolBall[] values) {
-        this.values = Arrays.asList(values);
+        this.values = new HashMap<>();
+        for(int i=0;i<values.length;i++) {
+            PoolBallIndex index = PoolBallIndex.of(i);
+            this.values.put(index, values[i]);
+        }
     }
 
     public int size() {
-        return values.size();
+        return values.entrySet().size();
     }
 
     public BallsInTheWrongPlace differenceTo(PoolBalls otherBalls) {
-        List<Integer> wrongBallIndices = new ArrayList<>();
-        for (int i = 0; i < otherBalls.size(); i++) {
-            final PoolBall myBall = values.get(i);
-            final PoolBall otherBall = otherBalls.values.get(i);
+        Iterator<Map.Entry<PoolBallIndex, PoolBall>> iterator = otherBalls.values.entrySet().iterator();
+        Iterator<Map.Entry<PoolBallIndex, PoolBall>> iteratorMine = values.entrySet().iterator();
+        List<PoolBallIndex> wrongBallIndices = new ArrayList<>();
+        while ( iterator.hasNext() && iteratorMine.hasNext()) {
+            Map.Entry<PoolBallIndex, PoolBall> next = iteratorMine.next();
+            final PoolBall myBall = next.getValue();
+            final PoolBall otherBall = iterator.next().getValue();
 
             if (!myBall.equals(otherBall)) {
-                wrongBallIndices.add(i);
+                wrongBallIndices.add(next.getKey());
             }
         }
 
-        return BallsInTheWrongPlace.at(wrongBallIndices.stream().map(PoolBallIndex::at).collect(Collectors.toList()).toArray(new PoolBallIndex[0]));
+        return BallsInTheWrongPlace.at(wrongBallIndices.toArray(new PoolBallIndex[0]));
 
     }
 }
