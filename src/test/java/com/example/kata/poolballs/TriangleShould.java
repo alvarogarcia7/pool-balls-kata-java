@@ -25,7 +25,7 @@ public class TriangleShould {
                 .current(of("R"), of("Y"), of("Y"))
                 .build();
 
-        assertThat(triangle.minimumSetOfSwaps(), is(Swaps.of(Swap.of(PoolBallIndex.of(0), PoolBallIndex.of(1)))));
+        assertThat(triangle.minimumSetOfSwaps(), isSwaps(swap(0, 1)));
     }
 
     @Test
@@ -35,7 +35,7 @@ public class TriangleShould {
                 .current(of("R"), of("T"), of("Y"))
                 .build();
 
-        assertThat(triangle.minimumSetOfSwaps(), is(Swaps.of(Swap.of(PoolBallIndex.of(0), PoolBallIndex.of(1)), Swap.of(PoolBallIndex.of(0), PoolBallIndex.of(2)))));
+        assertThat(triangle.minimumSetOfSwaps(), isSwaps(swap(0, 1), swap(0, 2)));
     }
 
     @Test
@@ -45,7 +45,7 @@ public class TriangleShould {
                 .current(of("R"), of("K"), of("T"), of("F"), of("Y"))
                 .build();
 
-        assertThat(triangle.minimumSetOfSwaps(), isSwaps(swap(0, 1), swap(0, 3), swap(0, 4)));;
+        assertThat(triangle.minimumSetOfSwaps(), isSwaps(swap(0, 1), swap(0, 3), swap(0, 4)));
     }
 
     private Matcher<Swaps> isSwaps(Swap... swaps) {
