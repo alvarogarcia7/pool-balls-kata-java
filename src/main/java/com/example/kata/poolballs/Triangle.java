@@ -18,15 +18,19 @@ public class Triangle {
             return Swaps.empty();
         }
 
-        BallsInTheWrongPlace wrongBalls = finalArrangement.differenceTo(currentArrangement);
-        swaps.add(wrongBalls.firstSwap());
 
-        PoolBalls currentArrangement2 = currentArrangement.apply(wrongBalls.firstSwap());
-        BallsInTheWrongPlace wrongBalls2 = finalArrangement.differenceTo(currentArrangement2);
-
-        if (wrongBalls2.size() == 2) {
-            swaps.add(wrongBalls2.firstSwap());
-        }
+        PoolBalls x = currentArrangement;
+        BallsInTheWrongPlace wrongBalls;
+        do {
+            wrongBalls = finalArrangement.differenceTo(x);
+            if (wrongBalls.size() > 1) {
+                Swap swap = wrongBalls.firstSwap();
+                swaps.add(swap);
+                x = x.apply(swap);
+            } else {
+                break;
+            }
+        } while (true);
         return Swaps.of(swaps.toArray(new Swap[0]));
 
     }
