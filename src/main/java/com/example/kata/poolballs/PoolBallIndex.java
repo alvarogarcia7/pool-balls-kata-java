@@ -12,10 +12,6 @@ public class PoolBallIndex {
         this.value = value;
     }
 
-    public static PoolBallIndex at(int value){
-        return new PoolBallIndex(value);
-    }
-
     public static PoolBallIndex of(int index) {
         return new PoolBallIndex(index);
     }
