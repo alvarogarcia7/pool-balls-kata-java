@@ -24,7 +24,7 @@ public class Triangle {
         PoolBalls currentArrangement2 = currentArrangement.apply(wrongBalls.firstSwap());
         BallsInTheWrongPlace wrongBalls2 = finalArrangement.differenceTo(currentArrangement2);
 
-        if (wrongBalls.size() == 3) {
+        if (wrongBalls2.size() == 2) {
             swaps.add(wrongBalls2.firstSwap());
         }
         return Swaps.of(swaps.toArray(new Swap[0]));
