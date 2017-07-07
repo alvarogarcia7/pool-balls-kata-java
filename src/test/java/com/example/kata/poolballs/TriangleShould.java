@@ -24,7 +24,7 @@ public class TriangleShould {
     public void get_the_single_swap() {
         Triangle triangle = Triangle.aNew()
                 .arrangement(poolBalls("YRY"))
-                .current(of("R"), of("Y"), of("Y"))
+                .current(poolBalls("RYY"), of("R"), of("Y"), of("Y"))
                 .build();
 
         assertThat(triangle.minimumSetOfSwaps(), isSwaps(swap(0, 1)));

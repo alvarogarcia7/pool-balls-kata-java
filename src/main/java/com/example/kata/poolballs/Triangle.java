@@ -67,5 +67,11 @@ public class Triangle {
         public Triangle build() {
             return new Triangle(finalArrangement, currentArrangement);
         }
+
+        public TriangleBuilder current(PoolBall.Collection poolBalls, PoolBall... arrangement) {
+            currentArrangement = new PoolBall.Collection(arrangement);
+            assert currentArrangement.equals(poolBalls);
+            return this;
+        }
     }
 }
