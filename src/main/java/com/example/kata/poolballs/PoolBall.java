@@ -18,8 +18,14 @@ public class PoolBall {
         return new PoolBall(value);
     }
 
+    @EqualsAndHashCode
+    @ToString
     public static class Collection {
         private final Map<Index, PoolBall> values;
+
+        public static Collection of(PoolBall[] values){
+            return new Collection(values);
+        }
 
         public Collection(PoolBall[] values) {
             this.values = new HashMap<>();
