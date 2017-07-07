@@ -73,5 +73,10 @@ public class Triangle {
             assert currentArrangement.equals(poolBalls);
             return this;
         }
+
+        public TriangleBuilder current(PoolBall.Collection poolBalls) {
+            this.currentArrangement = poolBalls;
+            return this;
+        }
     }
 }
