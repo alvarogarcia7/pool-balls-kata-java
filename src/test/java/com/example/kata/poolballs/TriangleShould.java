@@ -44,7 +44,7 @@ public class TriangleShould {
     @Test
     public void get_the_swaps_case_3() {
         Triangle triangle = Triangle.aNew()
-                .arrangement(of("Y"), of("R"), of("T"), of("K"), of("F"))
+                .arrangement(poolBalls("YRTKF"), of("Y"), of("R"), of("T"), of("K"), of("F"))
                 .current(of("R"), of("K"), of("T"), of("F"), of("Y"))
                 .build();
 
