@@ -48,23 +48,13 @@ public class Triangle {
             return this;
         }
 
-        public TriangleBuilder arrangement(PoolBall... arrangement) {
-            finalArrangement = new PoolBall.Collection(arrangement);
-            return this;
-        }
-
-        public TriangleBuilder current(PoolBall... currentArrangement) {
-            this.currentArrangement = new PoolBall.Collection(currentArrangement);
+        public TriangleBuilder current(PoolBall.Collection poolBalls) {
+            this.currentArrangement = poolBalls;
             return this;
         }
 
         public Triangle build() {
             return new Triangle(finalArrangement, currentArrangement);
-        }
-
-        public TriangleBuilder current(PoolBall.Collection poolBalls) {
-            this.currentArrangement = poolBalls;
-            return this;
         }
     }
 }
