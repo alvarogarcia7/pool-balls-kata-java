@@ -19,17 +19,17 @@ public class PoolBall {
     }
 
     public static class PoolBalls {
-        private final Map<PoolBallIndex, PoolBall> values;
+        private final Map<Index, PoolBall> values;
 
         public PoolBalls(PoolBall[] values) {
             this.values = new HashMap<>();
             for(int i=0;i<values.length;i++) {
-                PoolBallIndex index = PoolBallIndex.of(i);
+                Index index = Index.of(i);
                 this.values.put(index, values[i]);
             }
         }
 
-        private PoolBalls(Map<PoolBallIndex, PoolBall> balls) {
+        private PoolBalls(Map<Index, PoolBall> balls) {
             values = balls;
         }
 
@@ -38,11 +38,11 @@ public class PoolBall {
         }
 
         public BallsInTheWrongPlace differenceTo(PoolBalls otherBalls) {
-            Iterator<Map.Entry<PoolBallIndex, PoolBall>> iterator = otherBalls.values.entrySet().iterator();
-            Iterator<Map.Entry<PoolBallIndex, PoolBall>> iteratorMine = values.entrySet().iterator();
-            List<PoolBallIndex> wrongBallIndices = new ArrayList<>();
+            Iterator<Map.Entry<Index, PoolBall>> iterator = otherBalls.values.entrySet().iterator();
+            Iterator<Map.Entry<Index, PoolBall>> iteratorMine = values.entrySet().iterator();
+            List<Index> wrongBallIndices = new ArrayList<>();
             while ( iterator.hasNext() && iteratorMine.hasNext()) {
-                Map.Entry<PoolBallIndex, PoolBall> next = iteratorMine.next();
+                Map.Entry<Index, PoolBall> next = iteratorMine.next();
                 final PoolBall myBall = next.getValue();
                 final PoolBall otherBall = iterator.next().getValue();
 
@@ -51,12 +51,12 @@ public class PoolBall {
                 }
             }
 
-            return BallsInTheWrongPlace.at(wrongBallIndices.toArray(new PoolBallIndex[0]));
+            return BallsInTheWrongPlace.at(wrongBallIndices.toArray(new Index[0]));
 
         }
 
         public PoolBalls apply(Swap swap) {
-            Map<PoolBallIndex, PoolBall> balls = new HashMap<>(this.values);
+            Map<Index, PoolBall> balls = new HashMap<>(this.values);
             PoolBall from = balls.get(swap.getFrom());
             PoolBall to = balls.get(swap.getTo());
 
@@ -70,15 +70,15 @@ public class PoolBall {
 
     @ToString
     @EqualsAndHashCode
-    public static class PoolBallIndex {
+    public static class Index {
         private final int value;
 
-        private PoolBallIndex(int value) {
+        private Index(int value) {
             this.value = value;
         }
 
-        public static PoolBallIndex of(int index) {
-            return new PoolBallIndex(index);
+        public static Index of(int index) {
+            return new Index(index);
         }
     }
 }

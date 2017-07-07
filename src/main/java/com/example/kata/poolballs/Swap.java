@@ -11,15 +11,15 @@ import java.util.List;
 @ToString
 @Getter
 public class Swap {
-    private final PoolBall.PoolBallIndex from;
-    private final PoolBall.PoolBallIndex to;
+    private final PoolBall.Index from;
+    private final PoolBall.Index to;
 
-    public Swap(PoolBall.PoolBallIndex from, PoolBall.PoolBallIndex to) {
+    public Swap(PoolBall.Index from, PoolBall.Index to) {
         this.from = from;
         this.to = to;
     }
 
-    public static Swap of(PoolBall.PoolBallIndex from, PoolBall.PoolBallIndex to) {
+    public static Swap of(PoolBall.Index from, PoolBall.Index to) {
         return new Swap(from, to);
     }
 

@@ -53,6 +53,6 @@ public class TriangleShould {
     }
 
     private Swap swap(int from, int to) {
-        return Swap.of(PoolBall.PoolBallIndex.of(from), PoolBall.PoolBallIndex.of(to));
+        return Swap.of(PoolBall.Index.of(from), PoolBall.Index.of(to));
     }
 }
