@@ -21,6 +21,7 @@ public class PoolBallShould {
     }
 
     private PoolBall.Collection poolBalls(String... values) {
-        return PoolBall.Collection.of(Arrays.stream(values).map(PoolBall::of).collect(Collectors.toList()).toArray(new PoolBall[0]));
+        PoolBall[] poolBalls = Arrays.stream(values).map(PoolBall::of).collect(Collectors.toList()).toArray(new PoolBall[0]);
+        return PoolBall.Collection.of(poolBalls);
     }
 }
