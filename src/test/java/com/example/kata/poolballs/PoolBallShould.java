@@ -1,13 +1,12 @@
 package com.example.kata.poolballs;
 
-import com.example.kata.poolballs.helper.SwapFactory;
 import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-import static com.example.kata.poolballs.helper.SwapFactory.*;
-import static org.hamcrest.MatcherAssert.*;
+import static com.example.kata.poolballs.helper.SwapFactory.swap;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
 public class PoolBallShould {
