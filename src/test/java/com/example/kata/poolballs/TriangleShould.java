@@ -13,8 +13,8 @@ public class TriangleShould {
     @Test
     public void get_the_swaps_for_a_correct_triangle() {
         Triangle triangle = Triangle.aNew()
-                .arrangement(of("Y"))
-                .current(of("Y"))
+                .arrangement(poolBalls("Y"))
+                .current(poolBalls("Y"))
                 .build();
 
         assertThat(triangle.minimumSetOfSwaps(), is(Swap.Collection.empty()));
