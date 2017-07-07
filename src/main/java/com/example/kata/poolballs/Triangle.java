@@ -12,10 +12,10 @@ public class Triangle {
         this.currentArrangement = currentArrangement;
     }
 
-    public Swap.Swaps minimumSetOfSwaps() {
+    public Swap.Collection minimumSetOfSwaps() {
         List<Swap> swaps = new ArrayList<>();
         if (currentArrangement.size() == 1) {
-            return Swap.Swaps.empty();
+            return Swap.Collection.empty();
         }
 
 
@@ -31,7 +31,7 @@ public class Triangle {
                 break;
             }
         } while (true);
-        return Swap.Swaps.of(swaps.toArray(new Swap[0]));
+        return Swap.Collection.of(swaps.toArray(new Swap[0]));
 
     }
 

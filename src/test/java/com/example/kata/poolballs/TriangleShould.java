@@ -1,5 +1,6 @@
 package com.example.kata.poolballs;
 
+import com.example.kata.poolballs.PoolBall.Index;
 import org.hamcrest.Matcher;
 import org.junit.Test;
 
@@ -15,7 +16,7 @@ public class TriangleShould {
                 .current(of("Y"))
                 .build();
 
-        assertThat(triangle.minimumSetOfSwaps(), is(Swap.Swaps.empty()));
+        assertThat(triangle.minimumSetOfSwaps(), is(Swap.Collection.empty()));
     }
 
     @Test
@@ -48,11 +49,11 @@ public class TriangleShould {
         assertThat(triangle.minimumSetOfSwaps(), isSwaps(swap(0, 1), swap(0, 3), swap(0, 4)));
     }
 
-    private Matcher<Swap.Swaps> isSwaps(Swap... swaps) {
-        return is(Swap.Swaps.of(swaps));
+    private Matcher<Swap.Collection> isSwaps(Swap... swaps) {
+        return is(Swap.Collection.of(swaps));
     }
 
     private Swap swap(int from, int to) {
-        return Swap.of(PoolBall.Index.of(from), PoolBall.Index.of(to));
+        return Swap.of(Index.of(from), Index.of(to));
     }
 }

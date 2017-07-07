@@ -25,23 +25,23 @@ public class Swap {
 
     @EqualsAndHashCode
     @ToString
-    public static class Swaps {
+    public static class Collection {
         private final List<Swap> values;
 
-        private Swaps(Swap[] swaps) {
+        private Collection(Swap[] swaps) {
             this.values = Arrays.asList(swaps);
         }
 
-        private Swaps() {
+        private Collection() {
             this.values = Arrays.asList();
         }
 
-        public static Swaps empty() {
-            return new Swaps();
+        public static Collection empty() {
+            return new Collection();
         }
 
-        public static Swaps of(Swap... swaps) {
-            return new Swaps(swaps);
+        public static Collection of(Swap... swaps) {
+            return new Collection(swaps);
         }
     }
 }
