@@ -43,12 +43,6 @@ public class Triangle {
         private PoolBall.Collection finalArrangement;
         private PoolBall.Collection currentArrangement;
 
-        public TriangleBuilder arrangement(PoolBall.Collection poolBalls, PoolBall... arrangement) {
-            finalArrangement = new PoolBall.Collection(arrangement);
-            assert finalArrangement.equals(poolBalls);
-            return this;
-        }
-
         public TriangleBuilder arrangement(PoolBall.Collection poolBalls) {
             finalArrangement = poolBalls;
             return this;
@@ -66,12 +60,6 @@ public class Triangle {
 
         public Triangle build() {
             return new Triangle(finalArrangement, currentArrangement);
-        }
-
-        public TriangleBuilder current(PoolBall.Collection poolBalls, PoolBall... arrangement) {
-            currentArrangement = new PoolBall.Collection(arrangement);
-            assert currentArrangement.equals(poolBalls);
-            return this;
         }
 
         public TriangleBuilder current(PoolBall.Collection poolBalls) {
