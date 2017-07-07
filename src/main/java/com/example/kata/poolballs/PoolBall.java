@@ -18,10 +18,10 @@ public class PoolBall {
         return new PoolBall(value);
     }
 
-    public static class PoolBalls {
+    public static class Collection {
         private final Map<Index, PoolBall> values;
 
-        public PoolBalls(PoolBall[] values) {
+        public Collection(PoolBall[] values) {
             this.values = new HashMap<>();
             for(int i=0;i<values.length;i++) {
                 Index index = Index.of(i);
@@ -29,7 +29,7 @@ public class PoolBall {
             }
         }
 
-        private PoolBalls(Map<Index, PoolBall> balls) {
+        private Collection(Map<Index, PoolBall> balls) {
             values = balls;
         }
 
@@ -37,7 +37,7 @@ public class PoolBall {
             return values.entrySet().size();
         }
 
-        public BallsInTheWrongPlace differenceTo(PoolBalls otherBalls) {
+        public BallsInTheWrongPlace differenceTo(Collection otherBalls) {
             Iterator<Map.Entry<Index, PoolBall>> iterator = otherBalls.values.entrySet().iterator();
             Iterator<Map.Entry<Index, PoolBall>> iteratorMine = values.entrySet().iterator();
             List<Index> wrongBallIndices = new ArrayList<>();
@@ -55,7 +55,7 @@ public class PoolBall {
 
         }
 
-        public PoolBalls apply(Swap swap) {
+        public Collection apply(Swap swap) {
             Map<Index, PoolBall> balls = new HashMap<>(this.values);
             PoolBall from = balls.get(swap.getFrom());
             PoolBall to = balls.get(swap.getTo());
@@ -63,7 +63,7 @@ public class PoolBall {
             balls.replace(swap.getFrom(), to);
             balls.replace(swap.getTo(), from);
 
-            return new PoolBalls(balls);
+            return new Collection(balls);
         }
 
     }

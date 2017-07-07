@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Triangle {
-    private final PoolBall.PoolBalls finalArrangement;
-    private final PoolBall.PoolBalls currentArrangement;
+    private final PoolBall.Collection finalArrangement;
+    private final PoolBall.Collection currentArrangement;
 
-    private Triangle(PoolBall.PoolBalls finalArrangement, PoolBall.PoolBalls currentArrangement) {
+    private Triangle(PoolBall.Collection finalArrangement, PoolBall.Collection currentArrangement) {
         this.finalArrangement = finalArrangement;
         this.currentArrangement = currentArrangement;
     }
@@ -19,7 +19,7 @@ public class Triangle {
         }
 
 
-        PoolBall.PoolBalls x = currentArrangement;
+        PoolBall.Collection x = currentArrangement;
         BallsInTheWrongPlace wrongBalls;
         do {
             wrongBalls = finalArrangement.differenceTo(x);
@@ -54,7 +54,7 @@ public class Triangle {
         }
 
         public Triangle build() {
-            return new Triangle(new PoolBall.PoolBalls(arrangement), new PoolBall.PoolBalls(currentArrangement));
+            return new Triangle(new PoolBall.Collection(arrangement), new PoolBall.Collection(currentArrangement));
         }
     }
 }
