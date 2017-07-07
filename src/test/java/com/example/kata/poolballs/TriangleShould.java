@@ -45,7 +45,7 @@ public class TriangleShould {
     public void get_the_swaps_case_3() {
         Triangle triangle = Triangle.aNew()
                 .arrangement(poolBalls("YRTKF"))
-                .current(of("R"), of("K"), of("T"), of("F"), of("Y"))
+                .current(poolBalls("RKTFY"), of("R"), of("K"), of("T"), of("F"), of("Y"))
                 .build();
 
         assertThat(triangle.minimumSetOfSwaps(), isSwaps(swap(0, 1), swap(0, 3), swap(0, 4)));
