@@ -10,3 +10,7 @@ test:
 clean:
 	mvn clean
 
+.PHONY: install
+install:
+	mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+
