@@ -23,7 +23,7 @@ public class TriangleShould {
     @Test
     public void get_the_single_swap() {
         Triangle triangle = Triangle.aNew()
-                .arrangement(poolBalls("YRY"), of("Y"), of("R"), of("Y"))
+                .arrangement(poolBalls("YRY"))
                 .current(of("R"), of("Y"), of("Y"))
                 .build();
 

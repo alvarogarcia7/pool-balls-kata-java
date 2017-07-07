@@ -49,6 +49,11 @@ public class Triangle {
             return this;
         }
 
+        public TriangleBuilder arrangement(PoolBall.Collection poolBalls) {
+            finalArrangement = poolBalls;
+            return this;
+        }
+
         public TriangleBuilder arrangement(PoolBall... arrangement) {
             finalArrangement = new PoolBall.Collection(arrangement);
             return this;
