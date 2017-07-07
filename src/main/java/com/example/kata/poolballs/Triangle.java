@@ -43,6 +43,12 @@ public class Triangle {
         private PoolBall.Collection finalArrangement;
         private PoolBall.Collection currentArrangement;
 
+        public TriangleBuilder arrangement(PoolBall.Collection poolBalls, PoolBall... arrangement) {
+            finalArrangement = new PoolBall.Collection(arrangement);
+            assert finalArrangement.equals(poolBalls);
+            return this;
+        }
+
         public TriangleBuilder arrangement(PoolBall... arrangement) {
             finalArrangement = new PoolBall.Collection(arrangement);
             return this;

@@ -23,7 +23,7 @@ public class TriangleShould {
     @Test
     public void get_the_single_swap() {
         Triangle triangle = Triangle.aNew()
-                .arrangement(of("Y"), of("R"), of("Y"))
+                .arrangement(poolBalls("YRY"), of("Y"), of("R"), of("Y"))
                 .current(of("R"), of("Y"), of("Y"))
                 .build();
 
@@ -40,6 +40,7 @@ public class TriangleShould {
         assertThat(triangle.minimumSetOfSwaps(), isSwaps(swap(0, 1), swap(0, 2)));
     }
 
+
     @Test
     public void get_the_swaps_case_3() {
         Triangle triangle = Triangle.aNew()
@@ -48,6 +49,10 @@ public class TriangleShould {
                 .build();
 
         assertThat(triangle.minimumSetOfSwaps(), isSwaps(swap(0, 1), swap(0, 3), swap(0, 4)));
+    }
+
+    private PoolBall.Collection poolBalls(String representation) {
+        return PoolBallFactory.poolBalls(representation.split(""));
     }
 
     private Matcher<Swap.Collection> isSwaps(Swap... swaps) {
