@@ -41,7 +41,7 @@ public class Triangle {
 
     public static class TriangleBuilder {
         private PoolBall.Collection finalArrangement;
-        private PoolBall.Collection currentArrangement1;
+        private PoolBall.Collection currentArrangement;
 
         public TriangleBuilder arrangement(PoolBall... arrangement) {
             finalArrangement = new PoolBall.Collection(arrangement);
@@ -49,12 +49,12 @@ public class Triangle {
         }
 
         public TriangleBuilder current(PoolBall... currentArrangement) {
-            currentArrangement1 = new PoolBall.Collection(currentArrangement);
+            this.currentArrangement = new PoolBall.Collection(currentArrangement);
             return this;
         }
 
         public Triangle build() {
-            return new Triangle(finalArrangement, currentArrangement1);
+            return new Triangle(finalArrangement, currentArrangement);
         }
     }
 }
