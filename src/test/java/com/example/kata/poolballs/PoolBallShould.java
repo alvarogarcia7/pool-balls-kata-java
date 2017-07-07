@@ -1,5 +1,6 @@
 package com.example.kata.poolballs;
 
+import com.example.kata.poolballs.helper.SwapFactory;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -16,7 +17,7 @@ public class PoolBallShould {
     }
 
     private Swap swap(int from, int to) {
-        return Swap.of(PoolBall.Index.of(from), PoolBall.Index.of(to));
+        return SwapFactory.swap(from, to);
     }
 
     private PoolBall.Collection poolBalls(String... values) {

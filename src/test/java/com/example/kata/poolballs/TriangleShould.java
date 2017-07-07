@@ -1,10 +1,11 @@
 package com.example.kata.poolballs;
 
-import com.example.kata.poolballs.PoolBall.Index;
+import com.example.kata.poolballs.helper.SwapFactory;
 import org.hamcrest.Matcher;
 import org.junit.Test;
 
 import static com.example.kata.poolballs.PoolBall.of;
+import static com.example.kata.poolballs.helper.SwapFactory.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
@@ -53,7 +54,4 @@ public class TriangleShould {
         return is(Swap.Collection.of(swaps));
     }
 
-    private Swap swap(int from, int to) {
-        return Swap.of(Index.of(from), Index.of(to));
-    }
 }
