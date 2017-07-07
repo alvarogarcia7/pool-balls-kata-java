@@ -15,7 +15,7 @@ public class TriangleShould {
                 .current(of("Y"))
                 .build();
 
-        assertThat(triangle.minimumSetOfSwaps(), is(Swaps.empty()));
+        assertThat(triangle.minimumSetOfSwaps(), is(Swap.Swaps.empty()));
     }
 
     @Test
@@ -48,11 +48,11 @@ public class TriangleShould {
         assertThat(triangle.minimumSetOfSwaps(), isSwaps(swap(0, 1), swap(0, 3), swap(0, 4)));
     }
 
-    private Matcher<Swaps> isSwaps(Swap... swaps) {
-        return is(Swaps.of(swaps));
+    private Matcher<Swap.Swaps> isSwaps(Swap... swaps) {
+        return is(Swap.Swaps.of(swaps));
     }
 
     private Swap swap(int from, int to) {
-        return Swap.of(PoolBallIndex.of(from), PoolBallIndex.of(to));
+        return Swap.of(PoolBall.PoolBallIndex.of(from), PoolBall.PoolBallIndex.of(to));
     }
 }

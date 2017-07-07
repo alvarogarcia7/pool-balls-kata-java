@@ -4,22 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Triangle {
-    private final PoolBalls finalArrangement;
-    private final PoolBalls currentArrangement;
+    private final PoolBall.PoolBalls finalArrangement;
+    private final PoolBall.PoolBalls currentArrangement;
 
-    private Triangle(PoolBalls finalArrangement, PoolBalls currentArrangement) {
+    private Triangle(PoolBall.PoolBalls finalArrangement, PoolBall.PoolBalls currentArrangement) {
         this.finalArrangement = finalArrangement;
         this.currentArrangement = currentArrangement;
     }
 
-    public Swaps minimumSetOfSwaps() {
+    public Swap.Swaps minimumSetOfSwaps() {
         List<Swap> swaps = new ArrayList<>();
         if (currentArrangement.size() == 1) {
-            return Swaps.empty();
+            return Swap.Swaps.empty();
         }
 
 
-        PoolBalls x = currentArrangement;
+        PoolBall.PoolBalls x = currentArrangement;
         BallsInTheWrongPlace wrongBalls;
         do {
             wrongBalls = finalArrangement.differenceTo(x);
@@ -31,7 +31,7 @@ public class Triangle {
                 break;
             }
         } while (true);
-        return Swaps.of(swaps.toArray(new Swap[0]));
+        return Swap.Swaps.of(swaps.toArray(new Swap[0]));
 
     }
 
@@ -54,7 +54,7 @@ public class Triangle {
         }
 
         public Triangle build() {
-            return new Triangle(new PoolBalls(arrangement), new PoolBalls(currentArrangement));
+            return new Triangle(new PoolBall.PoolBalls(arrangement), new PoolBall.PoolBalls(currentArrangement));
         }
     }
 }

@@ -9,13 +9,13 @@ import java.util.List;
 @EqualsAndHashCode
 @ToString
 public class BallsInTheWrongPlace {
-    private List<PoolBallIndex> values;
+    private List<PoolBall.PoolBallIndex> values;
 
-    public BallsInTheWrongPlace(PoolBallIndex... values) {
+    public BallsInTheWrongPlace(PoolBall.PoolBallIndex... values) {
         this.values = Arrays.asList(values);
     }
 
-    public static BallsInTheWrongPlace at(PoolBallIndex... positions) {
+    public static BallsInTheWrongPlace at(PoolBall.PoolBallIndex... positions) {
         return new BallsInTheWrongPlace(positions);
     }
 
