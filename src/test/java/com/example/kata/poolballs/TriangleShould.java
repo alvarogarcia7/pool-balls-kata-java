@@ -33,7 +33,7 @@ public class TriangleShould {
     @Test
     public void get_the_swaps_case_2() {
         Triangle triangle = Triangle.aNew()
-                .arrangement(poolBalls("YRT"), of("Y"), of("R"), of("T"))
+                .arrangement(poolBalls("YRT"))
                 .current(of("R"), of("T"), of("Y"))
                 .build();
 
