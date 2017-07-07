@@ -42,19 +42,23 @@ public class Triangle {
     public static class TriangleBuilder {
         private PoolBall[] arrangement;
         private PoolBall[] currentArrangement;
+        private PoolBall.Collection finalArrangement;
+        private PoolBall.Collection currentArrangement1;
 
         public TriangleBuilder arrangement(PoolBall... arrangement) {
             this.arrangement = arrangement;
+            finalArrangement = new PoolBall.Collection(arrangement);
             return this;
         }
 
         public TriangleBuilder current(PoolBall... currentArrangement) {
             this.currentArrangement = currentArrangement;
+            currentArrangement1 = new PoolBall.Collection(currentArrangement);
             return this;
         }
 
         public Triangle build() {
-            return new Triangle(new PoolBall.Collection(arrangement), new PoolBall.Collection(currentArrangement));
+            return new Triangle(finalArrangement, currentArrangement1);
         }
     }
 }
